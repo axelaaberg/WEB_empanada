@@ -8,15 +8,15 @@ async function prepararPino(arrCondiciones) {
     let log = [];                                                       //arreglo donde se almacena el resultado
 
     try {
-    log.push(await cocinarCebollas(arrCondiciones[0]));
-    log.push({cebollas:'reservadas', status: 'con agua'});                      
-    log.push(await sofreirIngredientes(arrCondiciones[1]));            
-    log.push(await terminarSofrito(arrCondiciones[2]));                
-    log.push(await seguirCocinando(arrCondiciones[3]));                
-    log.push(await dejarReposar(arrCondiciones[4]));                   
-    console.log(log);
+        log.push(await cocinarCebollas(arrCondiciones[0]));             //inicia con el primer paso, no continua al siguente línea hasta que termine la funcion
+        log.push({cebollas:'reservadas', status: 'con agua'});                      
+        log.push(await sofreirIngredientes(arrCondiciones[1]));            
+        log.push(await terminarSofrito(arrCondiciones[2]));                
+        log.push(await seguirCocinando(arrCondiciones[3]));                
+        log.push(await dejarReposar(arrCondiciones[4]));                   
+        console.log(log);                                               //si todas las promesas se resuelven, se imprime el arreglo
     } catch (error) {
-        console.log(error);
+        console.log(error);                                             //atrapa cualquier error en el bloque try
     }
 
 }
