@@ -7,14 +7,20 @@ prepararPino(arrCondiciones);
 async function prepararPino(arrCondiciones) {
     let log = [];                                                       //arreglo donde se almacena el resultado
 
-    await cocinarCebollas(arrCondiciones[0]);                                  //inicia con el primer paso
-    
-
+    try {
+    log.push(await cocinarCebollas(arrCondiciones[0]));
+    log.push({cebollas:'reservadas', status: 'con agua'});                      
+    log.push(await sofreirIngredientes(arrCondiciones[1]));            
+    log.push(await terminarSofrito(arrCondiciones[2]));                
+    log.push(await seguirCocinando(arrCondiciones[3]));                
+    log.push(await dejarReposar(arrCondiciones[4]));                   
+    console.log(log);
+    } catch (error) {
+        console.log(error);
+    }
 
 }
      
-
-
 
 
 function cocinarCebollas(condicion) {
